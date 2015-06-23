@@ -1,0 +1,17 @@
+{
+    "name": "nordsoftware/lumen-core",
+    "description": "Core module for the Lumen framework.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christoffer Niska",
+            "email": "christofferniska@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+          "Nord\\Lumen\\Core\\": "src"
+        }
+    }
+}

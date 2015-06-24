@@ -54,4 +54,31 @@ class EntityController extends Controller
             throw new HttpResponseException($this->forbidden());
         }
     }
+
+
+    /**
+     * @param mixed $data
+     * @param array $params
+     *
+     * @return mixed
+     */
+    protected function serializeWithPermissions($data, array $params = [])
+    {
+        return $this->serializerService->serializeWithPermissions($data, $params);
+    }
+
+
+    /**
+     * @param string $permissionName
+     * @param Resource|null $resource
+     * @param array $params
+     *
+     * @throws HttpResponseException
+     */
+    protected function throwIfNotAllowed($permissionName, Resource $resource = null, array $params = [])
+    {
+        if (!$this->rbacService->hasPermissions($permissionName, $resource, $params)) {
+            throw new HttpResponseException($this->forbidden());
+        }
+    }
 }

@@ -1,0 +1,103 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "858d69190dee72e6bce60b03b785915e",
+    "packages": [
+        {
+            "name": "crisu83/overseer",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/crisu83/overseer.git",
+                "reference": "98b14b5408674a0c49b0552ca664ad60695b1157"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/crisu83/overseer/zipball/98b14b5408674a0c49b0552ca664ad60695b1157",
+                "reference": "98b14b5408674a0c49b0552ca664ad60695b1157",
+                "shasum": ""
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.1@dev",
+                "codeception/specify": "dev-master",
+                "codeception/verify": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Crisu83\\Overseer\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christoffer Niska",
+                    "email": "christofferniska@gmail.com"
+                }
+            ],
+            "description": "Framework agnostic RBAC implementation",
+            "time": "2015-06-22 19:55:28"
+        },
+        {
+            "name": "nordsoftware/lumen-rbac",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nordsoftware/lumen-rbac.git",
+                "reference": "5880dd5b922c92c699b412c8410b709aec02fbc8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nordsoftware/lumen-rbac/zipball/5880dd5b922c92c699b412c8410b709aec02fbc8",
+                "reference": "5880dd5b922c92c699b412c8410b709aec02fbc8",
+                "shasum": ""
+            },
+            "require": {
+                "crisu83/overseer": "0.1.0",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "laravel/lumen-framework": "^5.1@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nord\\Lumen\\Rbac\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christoffer Niska",
+                    "email": "christofferniska@gmail.com"
+                }
+            ],
+            "description": "RBAC module for the Lumen framework.",
+            "keywords": [
+                "laravel",
+                "lumen",
+                "overseer",
+                "permissions",
+                "rbac"
+            ],
+            "time": "2015-06-23 11:33:15"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

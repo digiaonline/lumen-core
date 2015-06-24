@@ -8,7 +8,9 @@
             "email": "christofferniska@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+      "nordsoftware/lumen-rbac": "0.3.0"
+    },
     "autoload": {
         "psr-4": {
           "Nord\\Lumen\\Core\\": "src"

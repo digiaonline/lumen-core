@@ -1,8 +1,6 @@
 <?php namespace Nord\Lumen\Core\App;
 
 use Crisu83\Overseer\Entity\Resource as RbacResource;
-use Illuminate\Contracts\Support\Arrayable;
-use JMS\Serializer\Serializer;
 use Nord\Lumen\Rbac\Contracts\RbacService;
 
 class SerializerService
@@ -61,6 +59,16 @@ class SerializerService
         return $array;
     }
 
+    /**
+         * @param mixed $data
+         * @param array $params
+         *
+         * @return mixed
+         */
+        public function serializeWithPermissions($data, array $params = [])
+        {
+            return $this->serialize($data, $params, true/* withPermissions */);
+        }
 
     /**
      * @param mixed $item

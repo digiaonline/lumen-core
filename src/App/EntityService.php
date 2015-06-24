@@ -1,7 +1,7 @@
 <?php namespace Nord\Lumen\Core\App;
 
 use Doctrine\ORM\EntityManager;
-use Eventello\Domain\Model\Entity;
+use Nord\Lumen\Core\Domain\Model\Entity;
 
 abstract class EntityService
 {

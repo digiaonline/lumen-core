@@ -1,7 +1,7 @@
 <?php namespace Nord\Lumen\Core\Http;
 
-use Crisu83\Overseer\Entity\Resource;
-use Nord\Lumen\Core\App\SerializerService;
+use Crisu83\Overseer\Entity\Resource as RbacResource;
+use Eventello\App\SerializerService;
 use Illuminate\Http\Exception\HttpResponseException;
 use Nord\Lumen\Rbac\Contracts\RbacService;
 
@@ -18,6 +18,7 @@ class EntityController extends Controller
      */
     private $serializerService;
 
+
     /**
      * EntityController constructor.
      *
@@ -30,25 +31,38 @@ class EntityController extends Controller
         $this->serializerService = $serializerService;
     }
 
+
+    /**
+     * @param mixed $data
+     *
+     * @return mixed
+     */
+    protected function serialize($data)
+    {
+        return $this->serializerService->serialize($data);
+    }
+
+
     /**
      * @param mixed $data
      * @param array $params
      *
      * @return mixed
      */
-    protected function serialize($data, array $params = [])
+    protected function serializeWithPermissions($data, array $params = [])
     {
-        return $this->serializerService->serialize($data, $params);
+        return $this->serializerService->serializeWithPermissions($data, $params);
     }
 
+
     /**
-     * @param string   $permissionName
-     * @param Resource $resource
-     * @param array    $params
+     * @param string       $permissionName
+     * @param RbacResource $resource
+     * @param array        $params
      *
      * @throws HttpResponseException
      */
-    protected function throwIfNotAllowed($permissionName, Resource $resource = null, array $params = [])
+    protected function throwIfNotAllowed($permissionName, RbacResource $resource = null, array $params = [])
     {
         if (!$this->rbacService->hasPermissions($permissionName, $resource, $params)) {
             throw new HttpResponseException($this->forbidden());

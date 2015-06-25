@@ -51,9 +51,9 @@ abstract class EntityService
 
 
     /**
-     * @param mixed $entity
+     *
      */
-    protected function commitEntity($entity)
+    protected function commitEntities()
     {
         $this->entityManager->flush($entity);
     }

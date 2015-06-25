@@ -1,8 +1,8 @@
 <?php namespace Nord\Lumen\Core\Http;
 
 use Crisu83\Overseer\Entity\Resource as RbacResource;
-use Eventello\App\SerializerService;
 use Illuminate\Http\Exception\HttpResponseException;
+use Nord\Lumen\Core\App\SerializerService;
 use Nord\Lumen\Rbac\Contracts\RbacService;
 
 class EntityController extends Controller

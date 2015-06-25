@@ -8,8 +8,10 @@
             "email": "christofferniska@gmail.com"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
         "nordsoftware/lumen-doctrine": "~1.0@dev",
+        "nordsoftware/lumen-rbac": "~0.3@dev",
         "nordsoftware/lumen-serializer": "~0.1@dev"
     },
     "require-dev": {

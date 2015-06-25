@@ -1,19 +1,26 @@
 {
-    "name": "nordsoftware/lumen-core",
-    "description": "Core module for the Lumen framework.",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Christoffer Niska",
-            "email": "christofferniska@gmail.com"
-        }
-    ],
-    "require": {
-      "nordsoftware/lumen-rbac": "0.3.0"
-    },
-    "autoload": {
-        "psr-4": {
-          "Nord\\Lumen\\Core\\": "src"
-        }
+  "name": "nordsoftware/lumen-core",
+  "description": "Core module for the Lumen framework.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Christoffer Niska",
+      "email": "christofferniska@gmail.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.5.9",
+    "nordsoftware/lumen-rbac": "~0.3@dev",
+    "nordsoftware/lumen-doctrine": "~1.0@dev",
+    "nordsoftware/lumen-serializer": "~0.1@dev"
+  },
+  "require-dev":{
+    "laravel/lumen-framework": "~5.1@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nord\\Lumen\\Core\\": "src"
+    }
+  }
 }

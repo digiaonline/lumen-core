@@ -1,8 +1,8 @@
 <?php namespace Nord\Lumen\Core\Http;
 
-use Crisu83\Overseer\Entity\Resource;
-use Nord\Lumen\Core\App\SerializerService;
+use Crisu83\Overseer\Entity\Resource as RbacResource;
 use Illuminate\Http\Exception\HttpResponseException;
+use Nord\Lumen\Core\App\SerializerService;
 use Nord\Lumen\Rbac\Contracts\RbacService;
 
 class EntityController extends Controller
@@ -26,7 +26,7 @@ class EntityController extends Controller
      */
     public function __construct(RbacService $rbacService, SerializerService $serializerService)
     {
-        $this->rbacService       = $rbacService;
+        $this->rbacService = $rbacService;
         $this->serializerService = $serializerService;
     }
 
@@ -42,21 +42,6 @@ class EntityController extends Controller
     }
 
     /**
-     * @param string   $permissionName
-     * @param Resource $resource
-     * @param array    $params
-     *
-     * @throws HttpResponseException
-     */
-    protected function throwIfNotAllowed($permissionName, Resource $resource = null, array $params = [])
-    {
-        if (!$this->rbacService->hasPermissions($permissionName, $resource, $params)) {
-            throw new HttpResponseException($this->forbidden());
-        }
-    }
-
-
-    /**
      * @param mixed $data
      * @param array $params
      *
@@ -67,15 +52,14 @@ class EntityController extends Controller
         return $this->serializerService->serializeWithPermissions($data, $params);
     }
 
-
     /**
-     * @param string $permissionName
-     * @param Resource|null $resource
-     * @param array $params
+     * @param string       $permissionName
+     * @param RbacResource $resource
+     * @param array        $params
      *
      * @throws HttpResponseException
      */
-    protected function throwIfNotAllowed($permissionName, Resource $resource = null, array $params = [])
+    protected function throwIfNotAllowed($permissionName, RbacResource $resource = null, array $params = [])
     {
         if (!$this->rbacService->hasPermissions($permissionName, $resource, $params)) {
             throw new HttpResponseException($this->forbidden());

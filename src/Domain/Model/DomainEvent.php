@@ -3,7 +3,7 @@
 use InvalidArgumentException;
 use Jenssegers\Date\Date;
 use JMS\Serializer\Annotation as DTO;
-use Nord\Lumen\Serializer\SerializerFacade as Serializer;
+use Nord\Lumen\Serializer\Facades\Serializer;
 
 /**
  * @DTO\ExclusionPolicy("all")

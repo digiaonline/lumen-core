@@ -35,9 +35,29 @@ abstract class EntityService
     /**
      * @param Entity $entity
      */
+    protected function saveEntityAndCommit(Entity $entity)
+    {
+        $this->entityManager->persist($entity);
+        $this->commitEntities();
+    }
+
+
+    /**
+     * @param Entity $entity
+     */
     protected function updateEntity(Entity $entity)
     {
         $this->entityManager->merge($entity);
+    }
+
+
+    /**
+     * @param Entity $entity
+     */
+    protected function updateEntityAndCommit(Entity $entity)
+    {
+        $this->entityManager->merge($entity);
+        $this->commitEntities();
     }
 
 
@@ -51,10 +71,20 @@ abstract class EntityService
 
 
     /**
+     * @param Entity $entity
+     */
+    protected function deleteEntityAndCommit(Entity $entity)
+    {
+        $this->entityManager->remove($entity);
+        $this->commitEntities();
+    }
+
+
+    /**
      *
      */
     protected function commitEntities()
     {
-        $this->entityManager->flush($entity);
+        $this->entityManager->flush();
     }
 }

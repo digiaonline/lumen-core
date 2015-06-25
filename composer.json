@@ -1,6 +1,6 @@
 {
     "name": "nordsoftware/lumen-core",
-    "description": "Core module for the Lumen framework.",
+    "description": "Core module for our REST API based on Lumen framework.",
     "license": "MIT",
     "authors": [
         {
@@ -8,10 +8,20 @@
             "email": "christofferniska@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "nordsoftware/lumen-doctrine": "~1.0@dev",
+        "nordsoftware/lumen-serializer": "~0.1@dev"
+    },
+    "require-dev": {
+        "laravel/lumen-framework": "~5.1@dev"
+    },
+    "suggests": [
+        "nordsoftware/lumen-cors",
+        "nordsoftware/lumen-oauth2"
+    ],
     "autoload": {
         "psr-4": {
-          "Nord\\Lumen\\Core\\": "src"
+            "Nord\\Lumen\\Core\\": "src"
         }
     }
 }

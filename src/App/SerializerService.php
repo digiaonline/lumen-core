@@ -35,12 +35,15 @@ class SerializerService
     /**
      * @param mixed $data
      * @param array $params
+     * @param bool  $withPermissions
      *
      * @return mixed
      */
-    public function serialize($data, array $params = [])
+    public function serialize($data, array $params = [], $withPermissions = false)
     {
-        return $this->isArray($data) ? $this->serializeArray($data, $params) : $this->serializeItem($data, $params);
+        return $this->isArray($data)
+            ? $this->serializeArray($data, $params, $withPermissions)
+            : $this->serializeItem($data, $params, $withPermissions);
     }
 
 
@@ -48,14 +51,27 @@ class SerializerService
      * @param mixed $data
      * @param array $params
      *
+     * @return mixed
+     */
+    public function serializeWithPermissions($data, array $params = [])
+    {
+        return $this->serialize($data, $params, true/* withPermissions */);
+    }
+
+
+    /**
+     * @param mixed $data
+     * @param array $params
+     * @param bool  $withPermissions
+     *
      * @return array
      */
-    protected function serializeArray($data, array $params)
+    protected function serializeArray($data, array $params, $withPermissions)
     {
         $array = [];
 
         foreach ($data as $item) {
-            $array[] = $this->serializeItem($item, $params);
+            $array[] = $this->serializeItem($item, $params, $withPermissions);
         }
 
         return $array;
@@ -65,14 +81,15 @@ class SerializerService
     /**
      * @param mixed $item
      * @param array $params
+     * @param bool  $withPermissions
      *
      * @return array
      */
-    protected function serializeItem($item, array $params)
+    protected function serializeItem($item, array $params, $withPermissions)
     {
         $array = $this->serializer->toArray($item);
 
-        if ($item instanceof RbacResource && !empty($params)) {
+        if ($withPermissions && $item instanceof RbacResource) {
             $array['permissions'] = $this->rbacService->getPermissions($item, $params);
         }
 

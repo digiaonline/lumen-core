@@ -1,13 +1,13 @@
 <?php namespace Nord\Lumen\Core\App;
 
-use Doctrine\ORM\EntityManager;
-use Eventello\Domain\Model\Entity;
+use Doctrine\ORM\EntityManagerInterface;
+use Nord\Lumen\Core\Domain\Model\Entity;
 
 abstract class EntityService
 {
 
     /**
-     * @var EntityManager
+     * @var EntityManagerInterface
      */
     protected $entityManager;
 
@@ -15,9 +15,9 @@ abstract class EntityService
     /**
      * EntityService constructor.
      *
-     * @param EntityManager $entityManager
+     * @param EntityManagerInterface $entityManager
      */
-    public function __construct(EntityManager $entityManager)
+    public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
     }

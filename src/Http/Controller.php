@@ -16,20 +16,20 @@ class Controller extends BaseController
      *
      * @return Response
      */
-    protected function success($data = [], $status = 200, array $headers = [])
+    protected function success($data = '', $status = 200, array $headers = [])
     {
         return new JsonResponse($data, $status, $headers);
     }
 
 
     /**
-     * @param array $data
+     * @param mixed $data
      * @param int   $status
      * @param array $headers
      *
      * @return Response
      */
-    protected function error($data = [], $status = 400, array $headers = [])
+    protected function error($data = '', $status = 400, array $headers = [])
     {
         return new JsonResponse($data, $status, $headers);
     }

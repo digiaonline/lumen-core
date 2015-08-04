@@ -2,6 +2,7 @@
     "name": "nordsoftware/lumen-core",
     "description": "Core module for our REST API based on Lumen framework.",
     "license": "MIT",
+    "keywords": ["laravel", "lumen", "core", "rest", "api"],
     "authors": [
         {
             "name": "Christoffer Niska",

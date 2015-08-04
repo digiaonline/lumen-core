@@ -4,7 +4,7 @@ use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\ORM\QueryBuilder;
 use Nord\Lumen\Core\Domain\Model\Entity;
 use Exception;
-use Nord\Lumen\Doctrine\Traits\AutoIncrements;
+use Nord\Lumen\Doctrine\ORM\Traits\AutoIncrements;
 
 class EntityRepository extends \Doctrine\ORM\EntityRepository
 {

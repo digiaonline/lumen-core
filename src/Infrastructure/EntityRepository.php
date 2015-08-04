@@ -106,6 +106,14 @@ class EntityRepository extends \Doctrine\ORM\EntityRepository
                     $queryBuilder->andWhere("$tableAlias.$property LIKE :$property")->setParameter($property,
                         "%$value%");
                     break;
+                case FilterSpec::TYPE_STARTS_WITH:
+                    $queryBuilder->andWhere("$tableAlias.$property LIKE :$property")->setParameter($property,
+                        "$value%");
+                    break;
+                case FilterSpec::TYPE_ENDS_WITH:
+                    $queryBuilder->andWhere("$tableAlias.$property LIKE :$property")->setParameter($property,
+                        "%$value");
+                    break;
                 case FilterSpec::TYPE_EQUALS:
                 default:
                     $queryBuilder->andWhere("$tableAlias.$property = :$property")->setParameter($property, $value);

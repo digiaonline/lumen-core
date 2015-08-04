@@ -12,6 +12,8 @@ class FilterSpec
     const TYPE_GREATER_OR_EQUAL_THAN = 'gte';
     const TYPE_LESS_OR_EQUAL_THAN = 'lte';
     const TYPE_FREE_TEXT = 'ft';
+    const TYPE_STARTS_WITH = 'sw';
+    const TYPE_ENDS_WITH = 'ew';
     const TYPE_BETWEEN = 'between';
     const TYPE_JOIN = 'join';
 
@@ -41,6 +43,8 @@ class FilterSpec
         self::TYPE_GREATER_OR_EQUAL_THAN,
         self::TYPE_LESS_OR_EQUAL_THAN,
         self::TYPE_FREE_TEXT,
+        self::TYPE_STARTS_WITH,
+        self::TYPE_ENDS_WITH,
         self::TYPE_BETWEEN,
         self::TYPE_JOIN,
     ];

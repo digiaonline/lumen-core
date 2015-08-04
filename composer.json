@@ -6,16 +6,20 @@
         {
             "name": "Christoffer Niska",
             "email": "christofferniska@gmail.com"
+        },
+        {
+            "name": "Danijel Maricic",
+            "email": "danijelmaricic@gmail.com"
         }
     ],
     "minimum-stability": "dev",
     "require": {
-        "nordsoftware/lumen-doctrine": "~1.0@dev",
+        "nordsoftware/lumen-doctrine": "~2.0@dev",
         "nordsoftware/lumen-rbac": "~0.3@dev",
         "nordsoftware/lumen-serializer": "~0.1@dev"
     },
     "require-dev": {
-        "laravel/lumen-framework": "~5.1@dev"
+        "laravel/lumen-framework": "~5.2@dev"
     },
     "suggests": [
         "nordsoftware/lumen-cors",

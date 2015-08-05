@@ -185,6 +185,11 @@ class FilterSpec
      */
     private function handleValue($value)
     {
+        // Convert booleans to integers
+        if (is_bool($value)) {
+            $value = (int) $value;
+        }
+
         $this->setValue($value);
         $this->setType(self::TYPE_EQUALS);
     }
@@ -224,12 +229,12 @@ class FilterSpec
 
 
     /**
-     * @param string $value
+     * @param mixed $value
      *
      * @return bool
      */
     private function isValue($value)
     {
-        return is_string($value);
+        return is_string($value) || is_int($value) || is_bool($value);
     }
 }

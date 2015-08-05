@@ -1,13 +1,13 @@
 <?php namespace Nord\Lumen\Core\App;
 
+use Doctrine\ODM\MongoDB\DocumentManager;
 use Nord\Lumen\Core\Domain\Model\Document;
-use Nord\Lumen\Doctrine\ODM\MongoDB\DocumentManagerInterface;
 
 abstract class DocumentService
 {
 
     /**
-     * @var DocumentManagerInterface
+     * @var DocumentManager
      */
     protected $documentManager;
 
@@ -15,9 +15,9 @@ abstract class DocumentService
     /**
      * DocumentService constructor.
      *
-     * @param DocumentManagerInterface $documentManager
+     * @param DocumentManager $documentManager
      */
-    public function __construct(DocumentManagerInterface $documentManager)
+    public function __construct(DocumentManager $documentManager)
     {
         $this->documentManager = $documentManager;
     }

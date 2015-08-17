@@ -12,4 +12,29 @@ class DocumentRepository extends MongoDocumentRepository
     {
         parent::__construct($dm, $uow, $class);
     }
+
+    /**
+     * Get document by short ID
+     * @param $id
+     * @return object
+     */
+    public function findByShortId($id)
+    {
+        return $this->findOneBy(['shortId' => $id]);
+    }
+
+    /**
+     * Get document(s) by a list of short IDs
+     * @param array  $ids List of short IDs
+     * @return array
+     */
+    public function findByShortIdList($ids)
+    {
+        return $this->createQueryBuilder()
+            ->field('shortId')
+            ->in($ids)
+            ->getQuery()
+            ->execute()
+            ->toArray();
+    }
 }

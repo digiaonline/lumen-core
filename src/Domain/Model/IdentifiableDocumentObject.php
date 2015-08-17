@@ -27,18 +27,7 @@ abstract class IdentifiableDocumentObject implements DomainObject
     {
         $this->setShortId($shortId === null ? new ShortId : $shortId);
     }
-
-
-    /**
-     * @param IdentifiableDomainObject $other
-     *
-     * @return bool
-     */
-    public function equals(IdentifiableDomainObject $other)
-    {
-        return $this->getShortIdValue() === $other->getShortIdValue();
-    }
-
+    
 
     /**
      * @return ShortId

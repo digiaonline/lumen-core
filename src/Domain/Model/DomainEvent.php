@@ -1,5 +1,6 @@
 <?php namespace Nord\Lumen\Core\Domain\Model;
 
+use Carbon\Carbon;
 use DateTime;
 use InvalidArgumentException;
 use Nord\Lumen\Serializer\Facades\Serializer;

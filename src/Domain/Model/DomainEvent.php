@@ -1,13 +1,9 @@
 <?php namespace Nord\Lumen\Core\Domain\Model;
 
+use DateTime;
 use InvalidArgumentException;
-use Jenssegers\Date\Date;
-use JMS\Serializer\Annotation as DTO;
 use Nord\Lumen\Serializer\Facades\Serializer;
 
-/**
- * @DTO\ExclusionPolicy("all")
- */
 abstract class DomainEvent implements DomainObject
 {
 
@@ -27,7 +23,7 @@ abstract class DomainEvent implements DomainObject
     private $name;
 
     /**
-     * @var Date
+     * @var DateTime
      */
     private $occurredAt;
 
@@ -43,7 +39,7 @@ abstract class DomainEvent implements DomainObject
         $this->setEventId(new ObjectId);
         $this->setChannel($channel);
         $this->setName($name);
-        $this->setOccurredAt(Date::now());
+        $this->setOccurredAt(Carbon::now());
     }
 
 
@@ -75,7 +71,7 @@ abstract class DomainEvent implements DomainObject
 
 
     /**
-     * @return Date
+     * @return DateTime
      */
     public function getOccurredAt()
     {
@@ -86,11 +82,11 @@ abstract class DomainEvent implements DomainObject
     /**
      * @return array|null
      */
-    public function getData()
+    public function getPayload()
     {
-        $data = Serializer::toArray($this);
+        $payload = Serializer::toArray($this);
 
-        return !empty($data) ? $data : null;
+        return !empty($payload) ? $payload : null;
     }
 
 
@@ -130,9 +126,9 @@ abstract class DomainEvent implements DomainObject
 
 
     /**
-     * @param Date $occurredAt
+     * @param DateTime $occurredAt
      */
-    private function setOccurredAt(Date $occurredAt)
+    private function setOccurredAt(DateTime $occurredAt)
     {
         $this->occurredAt = $occurredAt;
     }

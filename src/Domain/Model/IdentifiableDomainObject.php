@@ -1,17 +1,9 @@
 <?php namespace Nord\Lumen\Core\Domain\Model;
 
-use JMS\Serializer\Annotation as DTO;
-
 abstract class IdentifiableDomainObject implements DomainObject
 {
 
     /**
-     * @DTO\Expose
-     * @DTO\Type("string")
-     * @DTO\Accessor(getter="getObjectIdValue")
-     * @DTO\SerializedName("id")
-     * @DTO\ReadOnly
-     *
      * @var ObjectId
      */
     protected $objectId;

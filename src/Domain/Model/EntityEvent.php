@@ -1,48 +1,45 @@
 <?php namespace Nord\Lumen\Core\Domain\Model;
 
-use JMS\Serializer\Annotation as DTO;
+use Eventello\Access\Domain\Model\User;
 
-/**
- * @DTO\ExclusionPolicy("all")
- */
 abstract class EntityEvent extends DomainEvent
 {
 
     /**
-     * @var null|string
+     * @var User
      */
-    private $entityId;
+    private $user;
 
 
     /**
      * EntityEvent constructor.
      *
-     * @param string      $channel
-     * @param string      $name
-     * @param null|string $entityId
+     * @param string $channel
+     * @param string $name
+     * @param User   $user
      */
-    public function __construct($channel, $name, $entityId)
+    public function __construct($channel, $name, User $user)
     {
         parent::__construct($channel, $name);
 
-        $this->setEntityId($entityId);
+        $this->setUser($user);
     }
 
 
     /**
-     * @return null|string
+     * @return User
      */
-    public function getEntityId()
+    public function getUser()
     {
-        return $this->entityId;
+        return $this->user;
     }
 
 
     /**
-     * @param null|string $entityId
+     * @param User $user
      */
-    private function setEntityId($entityId)
+    private function setUser(User $user)
     {
-        $this->entityId = $entityId;
+        $this->user = $user;
     }
 }

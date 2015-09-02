@@ -8,6 +8,11 @@ use Doctrine\ODM\MongoDB\UnitOfWork;
 class DocumentRepository extends MongoDocumentRepository
 {
 
+    /**
+     * @param DocumentManager $dm
+     * @param UnitOfWork      $uow
+     * @param ClassMetadata   $class
+     */
     public function __construct(DocumentManager $dm, UnitOfWork $uow, ClassMetadata $class)
     {
         parent::__construct($dm, $uow, $class);

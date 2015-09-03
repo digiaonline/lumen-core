@@ -1,17 +1,16 @@
 <?php namespace Nord\Lumen\Core\Domain\Model;
 
-use Carbon\Carbon;
-use DateTime;
-use InvalidArgumentException;
-use Nord\Lumen\Serializer\Facades\Serializer;
+use JMS\Serializer\Annotation as DTO;
+use Nord\Lumen\Core\Exception\InvalidArgument;
 
-abstract class DomainEvent implements DomainObject
+/**
+ * @DTO\ExclusionPolicy("all")
+ */
+class DomainEvent implements DomainObject
 {
 
-    /**
-     * @var ObjectId
-     */
-    private $eventId;
+    use HasIdentity;
+    use HasOccurred;
 
     /**
      * @var string
@@ -23,11 +22,6 @@ abstract class DomainEvent implements DomainObject
      */
     private $name;
 
-    /**
-     * @var DateTime
-     */
-    private $occurredAt;
-
 
     /**
      * DomainEvent constructor.
@@ -37,19 +31,10 @@ abstract class DomainEvent implements DomainObject
      */
     public function __construct($channel, $name)
     {
-        $this->setEventId(new ObjectId);
+        $this->createObjectId();
         $this->setChannel($channel);
         $this->setName($name);
-        $this->setOccurredAt(Carbon::now());
-    }
-
-
-    /**
-     * @return string
-     */
-    public function getEventIdValue()
-    {
-        return $this->eventId->getValue();
+        $this->setOccurredAtToNow();
     }
 
 
@@ -72,41 +57,14 @@ abstract class DomainEvent implements DomainObject
 
 
     /**
-     * @return DateTime
-     */
-    public function getOccurredAt()
-    {
-        return $this->occurredAt;
-    }
-
-
-    /**
-     * @return array|null
-     */
-    public function getPayload()
-    {
-        $payload = Serializer::toArray($this);
-
-        return !empty($payload) ? $payload : null;
-    }
-
-
-    /**
-     * @param ObjectId $eventId
-     */
-    private function setEventId($eventId)
-    {
-        $this->eventId = $eventId;
-    }
-
-
-    /**
      * @param string $channel
+     *
+     * @throws InvalidArgument
      */
     private function setChannel($channel)
     {
         if (empty($channel)) {
-            throw new InvalidArgumentException('Event channel cannot be empty.');
+            throw new InvalidArgument('Event channel cannot be empty.');
         }
 
         $this->channel = $channel;
@@ -115,22 +73,15 @@ abstract class DomainEvent implements DomainObject
 
     /**
      * @param string $name
+     *
+     * @throws InvalidArgument
      */
     private function setName($name)
     {
         if (empty($name)) {
-            throw new InvalidArgumentException('Event name cannot be empty.');
+            throw new InvalidArgument('Event name cannot be empty.');
         }
 
         $this->name = $name;
-    }
-
-
-    /**
-     * @param DateTime $occurredAt
-     */
-    private function setOccurredAt(DateTime $occurredAt)
-    {
-        $this->occurredAt = $occurredAt;
     }
 }

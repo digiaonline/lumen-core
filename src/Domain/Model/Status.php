@@ -42,4 +42,13 @@ class Status implements ValueObject
 
         $this->value = $value;
     }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->getValue();
+    }
 }

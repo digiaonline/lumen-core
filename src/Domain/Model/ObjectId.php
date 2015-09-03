@@ -47,4 +47,13 @@ class ObjectId implements ValueObject
     {
         return $this->value;
     }
+
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getValue();
+    }
 }

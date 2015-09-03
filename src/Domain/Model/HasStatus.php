@@ -1,21 +1,12 @@
 <?php namespace Nord\Lumen\Core\Domain\Model;
 
-trait Stateful
+trait HasStatus
 {
 
     /**
      * @var Status
      */
     private $status;
-
-
-    /**
-     * @param Status $status
-     */
-    protected function setStatus(Status $status)
-    {
-        $this->status = $status;
-    }
 
 
     /**
@@ -33,5 +24,14 @@ trait Stateful
     public function getStatusValue()
     {
         return $this->status->getValue();
+    }
+
+
+    /**
+     * @param Status $status
+     */
+    private function setStatus(Status $status)
+    {
+        $this->status = $status;
     }
 }

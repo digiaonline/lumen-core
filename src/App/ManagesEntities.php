@@ -1,5 +1,6 @@
 <?php namespace Nord\Lumen\Core\App;
 
+use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Nord\Lumen\Core\Domain\Model\Entity;
 
@@ -7,64 +8,58 @@ trait ManagesEntities
 {
 
     /**
-     * @var EntityManagerInterface
+     * @param mixed $entity
      */
-    private $entityManager;
-
-
-    /**
-     * @param Entity $entity
-     */
-    private function saveEntity(Entity $entity)
+    private function saveEntity($entity)
     {
-        $this->entityManager->persist($entity);
+        $this->getEntityManager()->persist($entity);
     }
 
 
     /**
-     * @param Entity $entity
+     * @param mixed $entity
      */
-    private function saveEntityAndCommit(Entity $entity)
+    private function saveEntityAndCommit($entity)
     {
-        $this->entityManager->persist($entity);
+        $this->saveEntity($entity);
         $this->commitEntities();
     }
 
 
     /**
-     * @param Entity $entity
+     * @param mixed $entity
      */
-    private function updateEntity(Entity $entity)
+    private function updateEntity($entity)
     {
-        $this->entityManager->merge($entity);
+        $this->getEntityManager()->merge($entity);
     }
 
 
     /**
-     * @param Entity $entity
+     * @param mixed $entity
      */
-    private function updateEntityAndCommit(Entity $entity)
+    private function updateEntityAndCommit($entity)
     {
-        $this->entityManager->merge($entity);
+        $this->updateEntity($entity);
         $this->commitEntities();
     }
 
 
     /**
-     * @param Entity $entity
+     * @param mixed $entity
      */
-    private function deleteEntity(Entity $entity)
+    private function deleteEntity($entity)
     {
-        $this->entityManager->remove($entity);
+        $this->getEntityManager()->remove($entity);
     }
 
 
     /**
-     * @param Entity $entity
+     * @param mixed $entity
      */
-    private function deleteEntityAndCommit(Entity $entity)
+    private function deleteEntityAndCommit($entity)
     {
-        $this->entityManager->remove($entity);
+        $this->deleteEntity($entity);
         $this->commitEntities();
     }
 
@@ -74,16 +69,27 @@ trait ManagesEntities
      */
     private function commitEntities()
     {
-        $this->entityManager->flush();
+        $this->getEntityManager()->flush();
     }
 
 
     /**
-     * @param Entity $entity
+     * @param mixed $entity
      */
-    private function refreshEntity(Entity $entity)
+    private function refreshEntity($entity)
     {
-        $this->entityManager->refresh($entity);
+        $this->getEntityManager()->refresh($entity);
+    }
+
+
+    /**
+     * @param string $className
+     *
+     * @return ObjectRepository
+     */
+    private function getEntityRepository($className)
+    {
+        return $this->getEntityManager()->getRepository($className);
     }
 
 
@@ -92,15 +98,6 @@ trait ManagesEntities
      */
     private function getEntityManager()
     {
-        return $this->entityManager;
-    }
-
-
-    /**
-     * @param EntityManagerInterface $entityManager
-     */
-    private function setEntityManager($entityManager)
-    {
-        $this->entityManager = $entityManager;
+        return app(EntityManagerInterface::class);
     }
 }

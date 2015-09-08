@@ -1,4 +1,4 @@
-<?php namespace Nord\Lumen\Core\Http;
+<?php namespace Nord\Lumen\Core\App;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -42,7 +42,7 @@ class Controller extends BaseController
      */
     protected function badRequest($message = null)
     {
-        return $this->errorWithMessage($message !== null ? $message : trans('errors.bad_request'), 400);
+        return $this->errorWithMessage($message !== null ? $message : 'ERROR.BAD_REQUEST', 400);
     }
 
 
@@ -53,7 +53,7 @@ class Controller extends BaseController
      */
     protected function accessDenied($message = null)
     {
-        return $this->errorWithMessage($message !== null ? $message : trans('errors.access_denied'), 401);
+        return $this->errorWithMessage($message !== null ? $message : 'ERROR.ACCESS_DENIED', 401);
     }
 
 
@@ -64,7 +64,7 @@ class Controller extends BaseController
      */
     protected function forbidden($message = null)
     {
-        return $this->errorWithMessage($message !== null ? $message : trans('errors.forbidden'), 403);
+        return $this->errorWithMessage($message !== null ? $message : 'ERROR.FORBIDDEN', 403);
     }
 
 
@@ -75,7 +75,7 @@ class Controller extends BaseController
      */
     protected function notFound($message = null)
     {
-        return $this->errorWithMessage($message !== null ? $message : trans('errors.not_found'), 404);
+        return $this->errorWithMessage($message !== null ? $message : 'ERROR.NOT_FOUND', 404);
     }
 
 
@@ -86,7 +86,7 @@ class Controller extends BaseController
      */
     protected function unprocessableEntity($message = null)
     {
-        return $this->errorWithMessage($message !== null ? $message : trans('errors.unprocessable_entity'), 422);
+        return $this->errorWithMessage($message !== null ? $message : 'ERROR.UNPROCESSABLE_ENTITY', 422);
     }
 
 
@@ -97,7 +97,7 @@ class Controller extends BaseController
      */
     protected function fatalError($message = null)
     {
-        return $this->errorWithMessage($message !== null ? $message : trans('errors.fatal_error'), 500);
+        return $this->errorWithMessage($message !== null ? $message : 'ERROR.FATAL_ERROR', 500);
     }
 
 
@@ -132,5 +132,30 @@ class Controller extends BaseController
     private function errorWithMessage($message, $status = 400, array $headers = [])
     {
         return $this->error(['message' => $message], $status, $headers);
+    }
+
+
+    /**
+     * @param Request $request
+     * @param string  $key
+     *
+     * @return bool
+     */
+    protected function hasRequestParam(Request $request, $key)
+    {
+        return $this->getRequestParam($request, $key) !== null;
+    }
+
+
+    /**
+     * @param Request $request
+     * @param string  $key
+     * @param mixed   $default
+     *
+     * @return mixed
+     */
+    protected function getRequestParam(Request $request, $key, $default = null)
+    {
+        return array_get($request->all(), $key, $default);
     }
 }

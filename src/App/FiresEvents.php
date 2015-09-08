@@ -6,19 +6,13 @@ trait FiresEvents
 {
 
     /**
-     * @var Dispatcher
-     */
-    private $eventDispatcher;
-
-
-    /**
      * @param string|object $event
      * @param array         $payload
      * @param bool|false    $halt
      */
     private function fireEvent($event, $payload = [], $halt = false)
     {
-        $this->eventDispatcher->fire($event, $payload, $halt);
+        $this->getEventDispatcher()->fire($event, $payload, $halt);
     }
 
 
@@ -27,15 +21,6 @@ trait FiresEvents
      */
     private function getEventDispatcher()
     {
-        return $this->eventDispatcher;
-    }
-
-
-    /**
-     * @param Dispatcher $eventDispatcher
-     */
-    private function setEventDispatcher($eventDispatcher)
-    {
-        $this->eventDispatcher = $eventDispatcher;
+        return app(Dispatcher::class);
     }
 }

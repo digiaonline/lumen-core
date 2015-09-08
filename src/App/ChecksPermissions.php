@@ -7,11 +7,6 @@ use Nord\Lumen\Rbac\Contracts\RbacService;
 trait ChecksPermissions
 {
 
-    /**
-     * @var RbacService
-     */
-    private $rbacService;
-
 
     /**
      * @param string        $permissionName
@@ -22,7 +17,7 @@ trait ChecksPermissions
      */
     private function hasPermission($permissionName, Resource $resource = null, array $params = [])
     {
-        return $this->rbacService->hasPermissions($permissionName, $resource, $params);
+        return $this->getRbacService()->hasPermissions($permissionName, $resource, $params);
     }
 
 
@@ -40,11 +35,11 @@ trait ChecksPermissions
         Resource $resource = null,
         array $params = []
     ) {
-        if (!$this->hasPermission($permissionName, $resource, $params)) {
+        if (!($result = $this->hasPermission($permissionName, $resource, $params))) {
             call_user_func($notAllowed);
         }
 
-        return true;
+        return $result;
     }
 
 
@@ -53,15 +48,6 @@ trait ChecksPermissions
      */
     private function getRbacService()
     {
-        return $this->rbacService;
-    }
-
-
-    /**
-     * @param RbacService $rbacService
-     */
-    private function setRbacService($rbacService)
-    {
-        $this->rbacService = $rbacService;
+        return app(RbacService::class);
     }
 }

@@ -4,19 +4,13 @@ trait SerializesData
 {
 
     /**
-     * @var SerializerService
-     */
-    private $serializerService;
-
-
-    /**
      * @param mixed $data
      *
      * @return mixed
      */
-    private function serialize($data)
+    private function serializeData($data)
     {
-        return $this->serializerService->serialize($data);
+        return $this->getSerializerService()->serialize($data);
     }
 
 
@@ -28,7 +22,7 @@ trait SerializesData
      */
     private function serializeWithPermissions($data, array $params = [])
     {
-        return $this->serializerService->serializeWithPermissions($data, $params);
+        return $this->getSerializerService()->serializeWithPermissions($data, $params);
     }
 
 
@@ -37,15 +31,6 @@ trait SerializesData
      */
     public function getSerializerService()
     {
-        return $this->serializerService;
-    }
-
-
-    /**
-     * @param SerializerService $serializerService
-     */
-    private function setSerializerService($serializerService)
-    {
-        $this->serializerService = $serializerService;
+        return app(SerializerService::class);
     }
 }

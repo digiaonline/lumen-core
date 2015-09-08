@@ -3,30 +3,19 @@
 use Doctrine\ORM\EntityManagerInterface;
 use Nord\Lumen\Core\Domain\Model\Entity;
 
-abstract class EntityService
+trait ManagesEntities
 {
 
     /**
      * @var EntityManagerInterface
      */
-    protected $entityManager;
-
-
-    /**
-     * EntityService constructor.
-     *
-     * @param EntityManagerInterface $entityManager
-     */
-    public function __construct(EntityManagerInterface $entityManager)
-    {
-        $this->entityManager = $entityManager;
-    }
+    private $entityManager;
 
 
     /**
      * @param Entity $entity
      */
-    protected function saveEntity(Entity $entity)
+    private function saveEntity(Entity $entity)
     {
         $this->entityManager->persist($entity);
     }
@@ -35,7 +24,7 @@ abstract class EntityService
     /**
      * @param Entity $entity
      */
-    protected function saveEntityAndCommit(Entity $entity)
+    private function saveEntityAndCommit(Entity $entity)
     {
         $this->entityManager->persist($entity);
         $this->commitEntities();
@@ -45,7 +34,7 @@ abstract class EntityService
     /**
      * @param Entity $entity
      */
-    protected function updateEntity(Entity $entity)
+    private function updateEntity(Entity $entity)
     {
         $this->entityManager->merge($entity);
     }
@@ -54,7 +43,7 @@ abstract class EntityService
     /**
      * @param Entity $entity
      */
-    protected function updateEntityAndCommit(Entity $entity)
+    private function updateEntityAndCommit(Entity $entity)
     {
         $this->entityManager->merge($entity);
         $this->commitEntities();
@@ -64,7 +53,7 @@ abstract class EntityService
     /**
      * @param Entity $entity
      */
-    protected function deleteEntity(Entity $entity)
+    private function deleteEntity(Entity $entity)
     {
         $this->entityManager->remove($entity);
     }
@@ -73,7 +62,7 @@ abstract class EntityService
     /**
      * @param Entity $entity
      */
-    protected function deleteEntityAndCommit(Entity $entity)
+    private function deleteEntityAndCommit(Entity $entity)
     {
         $this->entityManager->remove($entity);
         $this->commitEntities();
@@ -83,8 +72,35 @@ abstract class EntityService
     /**
      *
      */
-    protected function commitEntities()
+    private function commitEntities()
     {
         $this->entityManager->flush();
+    }
+
+
+    /**
+     * @param Entity $entity
+     */
+    private function refreshEntity(Entity $entity)
+    {
+        $this->entityManager->refresh($entity);
+    }
+
+
+    /**
+     * @return EntityManagerInterface
+     */
+    private function getEntityManager()
+    {
+        return $this->entityManager;
+    }
+
+
+    /**
+     * @param EntityManagerInterface $entityManager
+     */
+    private function setEntityManager($entityManager)
+    {
+        $this->entityManager = $entityManager;
     }
 }

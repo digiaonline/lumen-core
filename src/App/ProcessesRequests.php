@@ -152,34 +152,6 @@ trait ProcessesRequests
 
 
     /**
-     * @param array $errors
-     * @param int   $status
-     * @param array $headers
-     *
-     * @return JsonResponse
-     */
-    private function validationFailedResponse(array $errors, $status = 422, array $headers = [])
-    {
-        $data = ['message' => 'ERROR.VALIDATION_FAILED', 'errors' => $errors];
-
-        return $this->errorResponse($data, $status, $headers);
-    }
-
-
-    /**
-     * @param array $errors
-     * @param int   $status
-     * @param array $headers
-     *
-     * @throws HttpResponseException
-     */
-    private function throwValidationFailed(array $errors, $status = 422, array $headers = [])
-    {
-        throw new HttpResponseException($this->validationFailedResponse($errors, $status, $headers));
-    }
-
-
-    /**
      * @param mixed $data
      * @param array $headers
      *
@@ -200,6 +172,34 @@ trait ProcessesRequests
     private function throwFatalError($data = null, array $headers = [])
     {
         throw new HttpResponseException($this->fatalErrorResponse($data, $headers));
+    }
+
+
+    /**
+     * @param string $message
+     * @param array  $errors
+     * @param int    $status
+     * @param array  $headers
+     *
+     * @return JsonResponse
+     */
+    private function validationFailedResponse($message, array $errors, $status = 422, array $headers = [])
+    {
+        return $this->errorResponse(['message' => $message, 'errors' => $errors], $status, $headers);
+    }
+
+
+    /**
+     * @param string $message
+     * @param array  $errors
+     * @param int    $status
+     * @param array  $headers
+     *
+     * @throws HttpResponseException
+     */
+    private function throwValidationFailed($message, array $errors, $status = 422, array $headers = [])
+    {
+        throw new HttpResponseException($this->validationFailedResponse($message, $errors, $status, $headers));
     }
 
 

@@ -14,4 +14,20 @@ class EntityRepository extends \Doctrine\ORM\EntityRepository
     {
         return $this->findOneBy(['objectId' => $objectId]);
     }
+
+
+    /**
+     * @param $objectId
+     *
+     * @return int
+     */
+    public function objectIdExists($objectId)
+    {
+        return (int) $this->createQueryBuilder('t')
+            ->select('COUNT(t.objectId)')
+            ->where('t.objectId = :objectId')
+            ->setParameter('objectId', $objectId)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }

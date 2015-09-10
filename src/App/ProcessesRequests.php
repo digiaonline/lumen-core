@@ -135,7 +135,7 @@ trait ProcessesRequests
      */
     private function unprocessableEntityResponse($data = null, array $headers = [])
     {
-        return $this->errorResponse($data, 400, $headers);
+        return $this->errorResponse($data, 422, $headers);
     }
 
 

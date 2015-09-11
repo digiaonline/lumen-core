@@ -15,18 +15,18 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "nesbot/carbon": "~1.20",
-        "nordsoftware/lumen-doctrine": "~2.0@dev",
-        "nordsoftware/lumen-rbac": "~0.3@dev",
-        "nordsoftware/lumen-serializer": "~0.1@dev"
+        "nesbot/carbon": "~1.20"
     },
     "require-dev": {
         "laravel/lumen-framework": "5.0.*"
     },
-    "suggests": [
-        "nordsoftware/lumen-cors",
-        "nordsoftware/lumen-oauth2"
-    ],
+    "suggest": {
+        "nordsoftware/lumen-cors": "For CORS support.",
+        "nordsoftware/lumen-doctrine": "For Doctrine support.",
+        "nordsoftware/lumen-oauth2": "For OAuth2 support.",
+        "nordsoftware/lumen-rbac": "For RBAC support.",
+        "nordsoftware/lumen-serializer": "For Serialization support."
+    },
     "autoload": {
         "psr-4": {
             "Nord\\Lumen\\Core\\": "src"

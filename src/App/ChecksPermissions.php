@@ -1,12 +1,13 @@
 <?php namespace Nord\Lumen\Core\App;
 
 use Closure;
+use Crisu83\Overseer\Entity\Assignment;
 use Crisu83\Overseer\Entity\Resource;
+use Crisu83\Overseer\Entity\Subject;
 use Nord\Lumen\Rbac\Contracts\RbacService;
 
 trait ChecksPermissions
 {
-
 
     /**
      * @param string        $permissionName
@@ -40,6 +41,30 @@ trait ChecksPermissions
         }
 
         return $result;
+    }
+
+
+    /**
+     * @param Subject $subject
+     * @param array   $roles
+     *
+     * @return Assignment
+     */
+    private function createRbacAssignment(Subject $subject, array $roles = [])
+    {
+        return $this->getRbacService()->createAssignment($subject, $roles);
+    }
+
+
+    /**
+     * @param Subject $subject
+     * @param array   $roles
+     *
+     * @return Assignment
+     */
+    private function updateRbacAssignment(Subject $subject, array $roles)
+    {
+        return $this->getRbacService()->updateAssignment($subject, $roles);
     }
 
 

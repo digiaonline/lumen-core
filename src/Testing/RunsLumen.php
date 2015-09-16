@@ -23,8 +23,6 @@ trait RunsLumen
      */
     private function refreshApplication()
     {
-        putenv('ENV_FILE=.env.test');
-
         $this->application = $this->createApplication();
 
         Facade::clearResolvedInstances();

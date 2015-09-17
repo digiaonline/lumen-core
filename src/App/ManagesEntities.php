@@ -83,6 +83,26 @@ trait ManagesEntities
 
 
     /**
+     * @param string $name
+     */
+    private function enableEntityFilter($name)
+    {
+        $this->getEntityManager()->getFilters()->enable($name);
+    }
+
+
+    /**
+     * @param string $name
+     */
+    private function disableEntityFilter($name)
+    {
+        // For some weird reason the filter needs to be enabled first in order to be disabled.
+        $this->getEntityManager()->getFilters()->enable($name);
+        $this->getEntityManager()->getFilters()->disable($name);
+    }
+
+
+    /**
      * @param string $className
      *
      * @return ObjectRepository

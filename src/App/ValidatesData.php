@@ -2,7 +2,7 @@
 
 use Closure;
 use Illuminate\Contracts\Validation\Factory;
-use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Validation\Validator;
 
 trait ValidatesData
 {
@@ -22,20 +22,6 @@ trait ValidatesData
 
 
     /**
-     * @param mixed $data
-     * @param array $rules
-     * @param array $messages
-     * @param array $customAttributes
-     *
-     * @return array
-     */
-    private function validateData($data, array $rules, array $messages = [], array $customAttributes = [])
-    {
-        return $this->createValidator($data, $rules, $messages, $customAttributes)->failed();
-    }
-
-
-    /**
      * @param mixed   $data
      * @param array   $rules
      * @param Closure $validationFailed
@@ -51,11 +37,11 @@ trait ValidatesData
         array $messages = [],
         array $customAttributes = []
     ) {
-        if (($errors = $this->validateData($data, $rules, $messages, $customAttributes))) {
-            call_user_func($validationFailed, $errors);
-        }
+        $validator = $this->createValidator($data, $rules, $messages, $customAttributes);
 
-        return $errors;
+        if ($validator->fails()) {
+            call_user_func($validationFailed, $validator->errors()->getMessages());
+        }
     }
 
 

@@ -8,21 +8,21 @@ trait ValidatesData
 {
 
     /**
-     * @param mixed $data
+     * @param array $data
      * @param array $rules
      * @param array $messages
      * @param array $customAttributes
      *
      * @return Validator
      */
-    private function createValidator($data, array $rules, array $messages = [], array $customAttributes = [])
+    private function createValidator(array $data, array $rules, array $messages = [], array $customAttributes = [])
     {
         return $this->getValidatorFactory()->make($data, $rules, $messages, $customAttributes);
     }
 
 
     /**
-     * @param mixed   $data
+     * @param array   $data
      * @param array   $rules
      * @param Closure $validationFailed
      * @param array   $messages
@@ -31,7 +31,7 @@ trait ValidatesData
      * @return array
      */
     private function tryValidateData(
-        $data,
+        array $data,
         array $rules,
         Closure $validationFailed,
         array $messages = [],

@@ -1,11 +1,7 @@
 <?php namespace Nord\Lumen\Core\Domain\Model;
 
-use JMS\Serializer\Annotation as DTO;
 use Nord\Lumen\Core\Exception\InvalidArgument;
 
-/**
- * @DTO\ExclusionPolicy("all")
- */
 class DomainEvent implements DomainObject
 {
 
@@ -15,12 +11,12 @@ class DomainEvent implements DomainObject
     /**
      * @var string
      */
-    private $channel;
+    private $name;
 
     /**
-     * @var string
+     * @var array
      */
-    private $name;
+    private $payload;
 
 
     /**
@@ -29,21 +25,12 @@ class DomainEvent implements DomainObject
      * @param string $channel
      * @param string $name
      */
-    public function __construct($channel, $name)
+    public function __construct($name, array $payload)
     {
         $this->createObjectId();
-        $this->setChannel($channel);
         $this->setName($name);
+        $this->setPayload($payload);
         $this->setOccurredAtToNow();
-    }
-
-
-    /**
-     * @return string
-     */
-    public function getChannel()
-    {
-        return $this->channel;
     }
 
 
@@ -57,17 +44,11 @@ class DomainEvent implements DomainObject
 
 
     /**
-     * @param string $channel
-     *
-     * @throws InvalidArgument
+     * @return string
      */
-    private function setChannel($channel)
+    public function getPayload()
     {
-        if (empty($channel)) {
-            throw new InvalidArgument('Event channel cannot be empty.');
-        }
-
-        $this->channel = $channel;
+        return $this->payload;
     }
 
 
@@ -83,5 +64,14 @@ class DomainEvent implements DomainObject
         }
 
         $this->name = $name;
+    }
+
+
+    /**
+     * @param array $payload
+     */
+    private function setPayload(array $payload)
+    {
+        $this->payload = $payload;
     }
 }

@@ -9,10 +9,12 @@ trait FiresEvents
      * @param string|object $event
      * @param array         $payload
      * @param bool|false    $halt
+     *
+     * @return array|null
      */
     private function fireEvent($event, $payload = [], $halt = false)
     {
-        $this->getEventDispatcher()->fire($event, $payload, $halt);
+        return $this->getEventDispatcher()->fire($event, $payload, $halt);
     }
 
 

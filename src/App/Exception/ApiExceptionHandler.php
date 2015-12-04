@@ -45,6 +45,6 @@ class ApiExceptionHandler
 
         $status = $exception instanceof HttpResponseException ? $exception->getStatusCode() : 500;
 
-        return new JsonResponse($data, $status);
+        return new JsonResponse($data, $status, array(), JSON_PARTIAL_OUTPUT_ON_ERROR);
     }
 }

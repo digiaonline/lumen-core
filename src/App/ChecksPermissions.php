@@ -24,6 +24,24 @@ trait ChecksPermissions
 
     /**
      * @param string        $permissionName
+     * @param Subject       $subject
+     * @param Resource|null $resource
+     * @param array         $params
+     *
+     * @return mixed
+     */
+    private function subjectHasPermission(
+        $permissionName,
+        Subject $subject,
+        Resource $resource = null,
+        array $params = []
+    ) {
+        return $this->getRbacService()->subjectHasPermissions($permissionName, $subject, $resource, $params);
+    }
+
+
+    /**
+     * @param string        $permissionName
      * @param Closure       $notAllowed
      * @param Resource|null $resource
      * @param array         $params

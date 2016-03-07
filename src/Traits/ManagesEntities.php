@@ -1,8 +1,7 @@
-<?php namespace Nord\Lumen\Core\App;
+<?php namespace Nord\Lumen\Core\Traits;
 
 use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Nord\Lumen\Core\Domain\Model\Entity;
 
 trait ManagesEntities
 {

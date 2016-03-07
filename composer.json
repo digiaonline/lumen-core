@@ -2,7 +2,7 @@
     "name": "nordsoftware/lumen-core",
     "description": "Core module for our REST API based on Lumen framework.",
     "license": "MIT",
-    "keywords": ["laravel", "lumen", "core", "rest", "api", "ddd"],
+    "keywords": ["lumen", "core", "rest", "api", "ddd", "laravel"],
     "authors": [
         {
             "name": "Christoffer Niska",
@@ -13,19 +13,18 @@
             "email": "danijelmaricic@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "nesbot/carbon": "~1.20"
     },
     "require-dev": {
-        "laravel/lumen-framework": "5.0.*"
+        "laravel/lumen-framework": "5.2.*"
     },
     "suggest": {
         "nordsoftware/lumen-cors": "For CORS support.",
         "nordsoftware/lumen-doctrine": "For Doctrine support.",
         "nordsoftware/lumen-oauth2": "For OAuth2 support.",
         "nordsoftware/lumen-rbac": "For RBAC support.",
-        "nordsoftware/lumen-serializer": "For Serialization support."
+        "nordsoftware/lumen-fractal": "For Serialization support."
     },
     "autoload": {
         "psr-4": {

@@ -1,6 +1,9 @@
-<?php namespace Nord\Lumen\Core\Domain\Model;
+<?php
 
-use InvalidArgumentException;
+namespace Nord\Lumen\Core\Domain;
+
+use Nord\Lumen\Core\Contracts\ValueObject;
+use Nord\Lumen\Core\Exceptions\InvalidArgument;
 
 class Status implements ValueObject
 {
@@ -36,8 +39,8 @@ class Status implements ValueObject
      */
     private function setValue($value)
     {
-        if (! is_int($value)) {
-            throw new InvalidArgumentException('Status must be an integer.');
+        if (!is_int($value)) {
+            throw new InvalidArgument('Status must be an integer.');
         }
 
         $this->value = $value;

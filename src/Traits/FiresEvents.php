@@ -1,4 +1,4 @@
-<?php namespace Nord\Lumen\Core\App;
+<?php namespace Nord\Lumen\Core\Traits;
 
 use Illuminate\Contracts\Events\Dispatcher;
 

@@ -1,4 +1,4 @@
-<?php namespace Nord\Lumen\Core\App\Exception;
+<?php namespace Nord\Lumen\Core\Handlers;
 
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 use Nord\Lumen\Cors\Contracts\CorsService;
@@ -9,7 +9,7 @@ class Handler extends ExceptionHandler
     /**
      * @var CorsService
      */
-    protected $corsService;
+    private $corsService;
 
 
     /**
@@ -18,7 +18,7 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        'Symfony\Component\HttpKernel\Exception\HttpException',
+        \Symfony\Component\HttpKernel\Exception\HttpException::class,
     ];
 
 

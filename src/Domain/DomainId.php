@@ -1,8 +1,9 @@
-<?php namespace Nord\Lumen\Core\Domain\Model;
+<?php namespace Nord\Lumen\Core\Domain;
 
 use Crisu83\ShortId\ShortId;
+use Nord\Lumen\Core\Contracts\ValueObject;
 
-class ObjectId implements ValueObject
+class DomainId implements ValueObject
 {
 
     /**
@@ -17,7 +18,7 @@ class ObjectId implements ValueObject
 
 
     /**
-     * ObjectId constructor.
+     * DomainId constructor.
      *
      * @param string $value
      */

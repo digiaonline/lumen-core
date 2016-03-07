@@ -2,7 +2,7 @@
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
-use Nord\Lumen\Core\Domain\Model\Status;
+use Nord\Lumen\Core\Domain\Status;
 
 final class StatusType extends Type
 {

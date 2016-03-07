@@ -1,4 +1,8 @@
-<?php namespace Nord\Lumen\Core\Domain\Model;
+<?php
+
+namespace Nord\Lumen\Core\Traits;
+
+use Nord\Lumen\Core\Domain\Status;
 
 trait HasStatus
 {

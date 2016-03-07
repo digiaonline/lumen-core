@@ -1,4 +1,4 @@
-<?php namespace Nord\Lumen\Core\App\Exception;
+<?php namespace Nord\Lumen\Core\Handlers;
 
 use Illuminate\Http\Exception\HttpResponseException;
 use Illuminate\Http\JsonResponse;
@@ -33,18 +33,18 @@ class ApiExceptionHandler
         if ($this->debug) {
             $data = [
                 'exception' => get_class($exception),
-                'message' => $exception->getMessage(),
-                'code' => $exception->getCode(),
-                'file' => $exception->getFile(),
-                'line' => $exception->getLine(),
-                'trace' => $exception->getTrace(),
+                'message'   => $exception->getMessage(),
+                'code'      => $exception->getCode(),
+                'file'      => $exception->getFile(),
+                'line'      => $exception->getLine(),
+                'trace'     => $exception->getTrace(),
             ];
         } else {
-            $data = ['message' => trans('errors.something_went_wrong')];
+            $data = ['message' => 'ERROR.FATAL_ERROR'];
         }
 
         $status = $exception instanceof HttpResponseException ? $exception->getStatusCode() : 500;
 
-        return new JsonResponse($data, $status, array(), JSON_PARTIAL_OUTPUT_ON_ERROR);
+        return new JsonResponse($data, $status, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
     }
 }

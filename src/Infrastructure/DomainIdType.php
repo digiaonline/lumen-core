@@ -2,9 +2,9 @@
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
-use Nord\Lumen\Core\Domain\Model\ObjectId;
+use Nord\Lumen\Core\Domain\DomainId;
 
-final class ObjectIdType extends Type
+final class DomainIdType extends Type
 {
 
     /**
@@ -12,7 +12,7 @@ final class ObjectIdType extends Type
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        return $value instanceof ObjectId ? $value->getValue() : $value;
+        return $value instanceof DomainId ? $value->getValue() : $value;
     }
 
 
@@ -21,7 +21,7 @@ final class ObjectIdType extends Type
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        return new ObjectId($value);
+        return new DomainId($value);
     }
 
 
@@ -39,6 +39,6 @@ final class ObjectIdType extends Type
      */
     public function getName()
     {
-        return 'object_id';
+        return 'domain_id';
     }
 }

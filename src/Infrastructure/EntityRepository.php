@@ -11,7 +11,7 @@ class EntityRepository extends BaseRepository
      *
      * @return Entity|null
      */
-    public function findByObjectId($objectId)
+    public function findByDomainId($objectId)
     {
         return $this->findOneBy(['objectId' => $objectId]);
     }

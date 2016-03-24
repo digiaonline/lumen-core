@@ -7,13 +7,13 @@ class EntityRepository extends BaseRepository
 {
 
     /**
-     * @param string $objectId
+     * @param string $domainId
      *
      * @return Entity|null
      */
-    public function findByDomainId($objectId)
+    public function findByDomainId($domainId)
     {
-        return $this->findOneBy(['objectId' => $objectId]);
+        return $this->findOneBy(['domainId' => $domainId]);
     }
 
 

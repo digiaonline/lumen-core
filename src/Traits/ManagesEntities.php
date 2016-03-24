@@ -102,13 +102,13 @@ trait ManagesEntities
 
 
     /**
-     * @param string $className
+     * @param string $entityClassName
      *
      * @return ObjectRepository
      */
-    private function getEntityRepository($className)
+    private function getEntityRepository($entityClassName)
     {
-        return $this->getEntityManager()->getRepository($className);
+        return $this->getEntityManager()->getRepository($entityClassName);
     }
 
 

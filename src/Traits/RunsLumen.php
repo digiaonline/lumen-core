@@ -1,4 +1,6 @@
-<?php namespace Nord\Lumen\Core\Testing;
+<?php
+
+namespace Nord\Lumen\Core\Traits;
 
 use Illuminate\Support\Facades\Facade;
 use Laravel\Lumen\Application;

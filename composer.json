@@ -14,7 +14,8 @@
         }
     ],
     "require": {
-        "nesbot/carbon": "~1.20"
+        "nesbot/carbon": "~1.20",
+        "crisu83/shortid": "^1.0"
     },
     "require-dev": {
         "laravel/lumen-framework": "5.2.*"

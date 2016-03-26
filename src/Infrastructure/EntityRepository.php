@@ -7,27 +7,27 @@ class EntityRepository extends BaseRepository
 {
 
     /**
-     * @param string $objectId
+     * @param string $domainId
      *
      * @return Entity|null
      */
-    public function findByObjectId($objectId)
+    public function findByDomainId($domainId)
     {
-        return $this->findOneBy(['objectId' => $objectId]);
+        return $this->findOneBy(['domainId' => $domainId]);
     }
 
 
     /**
-     * @param $objectId
+     * @param $domainId
      *
      * @return int
      */
-    public function objectIdExists($objectId)
+    public function domainIdExists($domainId)
     {
         return (int) $this->createQueryBuilder('t')
-            ->select('COUNT(t.objectId)')
-            ->where('t.objectId = :objectId')
-            ->setParameter('objectId', $objectId)
+            ->select('COUNT(t.domainId)')
+            ->where('t.domainId = :domainId')
+            ->setParameter('domainId', $domainId)
             ->getQuery()
             ->getSingleScalarResult();
     }

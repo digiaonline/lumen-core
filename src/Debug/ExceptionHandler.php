@@ -1,9 +1,9 @@
-<?php namespace Nord\Lumen\Core\Handlers;
+<?php namespace Nord\Lumen\Core\Debug;
 
-use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
+use Laravel\Lumen\Exceptions\Handler;
 use Nord\Lumen\Cors\Contracts\CorsService;
 
-class Handler extends ExceptionHandler
+class ExceptionHandler extends Handler
 {
 
     /**
@@ -47,16 +47,11 @@ class Handler extends ExceptionHandler
 
 
     /**
-     * Render an exception into an HTTP response.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Exception               $e
-     *
-     * @return \Illuminate\Http\Response
+     * @inheritdoc
      */
     public function render($request, \Exception $e)
     {
-        $handler = new ApiExceptionHandler(env('APP_DEBUG', false));
+        $handler = new JsonExceptionHandler(env('APP_DEBUG', false));
 
         $response = $handler->createResponse($e);
 

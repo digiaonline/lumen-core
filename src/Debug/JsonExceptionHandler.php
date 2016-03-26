@@ -1,9 +1,9 @@
-<?php namespace Nord\Lumen\Core\Handlers;
+<?php namespace Nord\Lumen\Core\Debug;
 
 use Illuminate\Http\Exception\HttpResponseException;
 use Illuminate\Http\JsonResponse;
 
-class ApiExceptionHandler
+class JsonExceptionHandler
 {
 
     /**
@@ -13,7 +13,7 @@ class ApiExceptionHandler
 
 
     /**
-     * ApiExceptionHandler constructor.
+     * JsonExceptionHandler constructor.
      *
      * @param bool $debug
      */
@@ -40,10 +40,10 @@ class ApiExceptionHandler
                 'trace'     => $exception->getTrace(),
             ];
         } else {
-            $data = ['message' => 'ERROR.FATAL_ERROR'];
+            $data = 'Something went wrong.';
         }
 
-        $status = $exception instanceof HttpResponseException ? $exception->getStatusCode() : 500;
+        $status = $exception instanceof HttpResponseException ? $exception->getCode() : 500;
 
         return new JsonResponse($data, $status, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
     }

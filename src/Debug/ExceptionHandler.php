@@ -1,16 +1,11 @@
 <?php namespace Nord\Lumen\Core\Debug;
 
+use Exception;
 use Laravel\Lumen\Exceptions\Handler;
-use Nord\Lumen\Cors\Contracts\CorsService;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class ExceptionHandler extends Handler
 {
-
-    /**
-     * @var CorsService
-     */
-    private $corsService;
-
 
     /**
      * A list of the exception types that should not be reported.
@@ -18,17 +13,8 @@ class ExceptionHandler extends Handler
      * @var array
      */
     protected $dontReport = [
-        \Symfony\Component\HttpKernel\Exception\HttpException::class,
+        HttpException::class,
     ];
-
-
-    /**
-     * Handler constructor.
-     */
-    public function __construct(CorsService $corsService)
-    {
-        $this->corsService = $corsService;
-    }
 
 
     /**
@@ -40,7 +26,7 @@ class ExceptionHandler extends Handler
      *
      * @return void
      */
-    public function report(\Exception $e)
+    public function report(Exception $e)
     {
         parent::report($e);
     }
@@ -49,12 +35,10 @@ class ExceptionHandler extends Handler
     /**
      * @inheritdoc
      */
-    public function render($request, \Exception $e)
+    public function render($request, Exception $e)
     {
         $handler = new JsonExceptionHandler(env('APP_DEBUG', false));
 
-        $response = $handler->createResponse($e);
-
-        return $this->corsService->handleRequest($request, $response);
+        return $handler->createResponse($e);
     }
 }

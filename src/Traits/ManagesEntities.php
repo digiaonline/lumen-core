@@ -5,7 +5,6 @@ use Doctrine\ORM\EntityManagerInterface;
 
 trait ManagesEntities
 {
-
     /**
      * @param mixed $entity
      */
@@ -13,7 +12,6 @@ trait ManagesEntities
     {
         $this->getEntityManager()->persist($entity);
     }
-
 
     /**
      * @param mixed $entity
@@ -24,7 +22,6 @@ trait ManagesEntities
         $this->commitEntities();
     }
 
-
     /**
      * @param mixed $entity
      */
@@ -32,7 +29,6 @@ trait ManagesEntities
     {
         $this->getEntityManager()->merge($entity);
     }
-
 
     /**
      * @param mixed $entity
@@ -43,7 +39,6 @@ trait ManagesEntities
         $this->commitEntities();
     }
 
-
     /**
      * @param mixed $entity
      */
@@ -51,7 +46,6 @@ trait ManagesEntities
     {
         $this->getEntityManager()->remove($entity);
     }
-
 
     /**
      * @param mixed $entity
@@ -62,7 +56,6 @@ trait ManagesEntities
         $this->commitEntities();
     }
 
-
     /**
      *
      */
@@ -70,7 +63,6 @@ trait ManagesEntities
     {
         $this->getEntityManager()->flush();
     }
-
 
     /**
      * @param mixed $entity
@@ -80,7 +72,6 @@ trait ManagesEntities
         $this->getEntityManager()->refresh($entity);
     }
 
-
     /**
      * @param string $name
      */
@@ -88,7 +79,6 @@ trait ManagesEntities
     {
         $this->getEntityManager()->getFilters()->enable($name);
     }
-
 
     /**
      * @param string $name
@@ -100,7 +90,6 @@ trait ManagesEntities
         $this->getEntityManager()->getFilters()->disable($name);
     }
 
-
     /**
      * @param string $entityClassName
      *
@@ -110,7 +99,6 @@ trait ManagesEntities
     {
         return $this->getEntityManager()->getRepository($entityClassName);
     }
-
 
     /**
      * @return EntityManagerInterface

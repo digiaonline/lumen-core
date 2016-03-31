@@ -7,12 +7,10 @@ use Nord\Lumen\Core\Exceptions\ImmutableProperty;
 
 trait HasIdentity
 {
-
     /**
      * @var DomainId
      */
     private $domainId;
-
 
     /**
      * @param DomainId $domainId
@@ -24,7 +22,6 @@ trait HasIdentity
         return $this->domainId->getValue() === $domainId->getValue();
     }
 
-
     /**
      * @return DomainId
      */
@@ -33,7 +30,6 @@ trait HasIdentity
         return $this->domainId;
     }
 
-
     /**
      * @return string
      */
@@ -41,7 +37,6 @@ trait HasIdentity
     {
         return $this->getDomainId()->getValue();
     }
-
 
     /**
      * @param null|string $value
@@ -52,7 +47,6 @@ trait HasIdentity
     {
         $this->setDomainId(new DomainId($value));
     }
-
 
     /**
      * @param DomainId $domainId

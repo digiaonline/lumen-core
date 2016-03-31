@@ -5,12 +5,10 @@ use Illuminate\Http\JsonResponse;
 
 class JsonExceptionHandler
 {
-
     /**
      * @var bool
      */
     private $debug;
-
 
     /**
      * JsonExceptionHandler constructor.
@@ -21,7 +19,6 @@ class JsonExceptionHandler
     {
         $this->debug = $debug;
     }
-
 
     /**
      * @param \Exception $exception

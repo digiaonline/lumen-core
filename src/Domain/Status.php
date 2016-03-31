@@ -7,12 +7,10 @@ use Nord\Lumen\Core\Exceptions\InvalidArgument;
 
 class Status implements ValueObject
 {
-
     /**
      * @var int
      */
     private $value;
-
 
     /**
      * Status constructor.
@@ -24,7 +22,6 @@ class Status implements ValueObject
         $this->setValue($value);
     }
 
-
     /**
      * @return int
      */
@@ -32,7 +29,6 @@ class Status implements ValueObject
     {
         return $this->value;
     }
-
 
     /**
      * @param int $value
@@ -45,7 +41,6 @@ class Status implements ValueObject
 
         $this->value = $value;
     }
-
 
     /**
      * @return string

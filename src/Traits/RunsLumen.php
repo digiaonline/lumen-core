@@ -4,11 +4,10 @@ namespace Nord\Lumen\Core\Traits;
 
 use Illuminate\Support\Facades\Facade;
 use Laravel\Lumen\Application;
-use Nord\Lumen\Core\Exception\FatalError;
+use Nord\Lumen\Core\Exceptions\FatalError;
 
 trait RunsLumen
 {
-
     /**
      * @var string
      */
@@ -19,7 +18,6 @@ trait RunsLumen
      */
     private $application;
 
-
     /**
      * Refresh the application instance.
      */
@@ -29,7 +27,6 @@ trait RunsLumen
 
         Facade::clearResolvedInstances();
     }
-
 
     /**
      * Creates the application.
@@ -45,7 +42,6 @@ trait RunsLumen
         return require $this->applicationPath;
     }
 
-
     /**
      * Starts the application.
      */
@@ -55,7 +51,6 @@ trait RunsLumen
             $this->refreshApplication();
         }
     }
-
 
     /**
      * Stops the application.
@@ -69,7 +64,6 @@ trait RunsLumen
         }
     }
 
-
     /**
      * @param string $command
      * @param array  $parameters
@@ -80,7 +74,6 @@ trait RunsLumen
     {
         return $this->application['Illuminate\Contracts\Console\Kernel']->call($command, $parameters);
     }
-
 
     /**
      * Sets the application path.

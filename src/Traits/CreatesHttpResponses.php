@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 trait CreatesHttpResponses
 {
-
     /**
      * @param mixed $resource
      * @param array $data
@@ -18,7 +17,6 @@ trait CreatesHttpResponses
     {
         return $this->okResponse(array_merge(['data' => $resource], $data), $headers);
     }
-
 
     /**
      * @param mixed $resource
@@ -32,7 +30,6 @@ trait CreatesHttpResponses
         return $this->createdResponse(array_merge(['data' => $resource], $data), $headers);
     }
 
-
     /**
      * @param mixed $data
      * @param array $metadata
@@ -44,7 +41,6 @@ trait CreatesHttpResponses
     {
         return $this->successResponse($data, 200, $headers);
     }
-
 
     /**
      * @param mixed $data
@@ -58,7 +54,6 @@ trait CreatesHttpResponses
         return $this->successResponse($data, 201, $headers);
     }
 
-
     /**
      * @param string $message
      * @param array  $metadata
@@ -70,7 +65,6 @@ trait CreatesHttpResponses
     {
         return $this->errorResponse($message, $metadata, 400, $headers);
     }
-
 
     /**
      * @param string $message
@@ -84,7 +78,6 @@ trait CreatesHttpResponses
         throw new HttpResponseException($this->badRequestResponse($message, $metadata, $headers));
     }
 
-
     /**
      * @param string $message
      * @param array  $metadata
@@ -96,7 +89,6 @@ trait CreatesHttpResponses
     {
         return $this->errorResponse($message, $metadata, 401, $headers);
     }
-
 
     /**
      * @param string $message
@@ -110,7 +102,6 @@ trait CreatesHttpResponses
         throw new HttpResponseException($this->accessDeniedResponse($message, $data, $headers));
     }
 
-
     /**
      * @param string $message
      * @param array  $data
@@ -122,7 +113,6 @@ trait CreatesHttpResponses
     {
         return $this->errorResponse($message, $data, 403, $headers);
     }
-
 
     /**
      * @param string $message
@@ -136,7 +126,6 @@ trait CreatesHttpResponses
         throw new HttpResponseException($this->forbiddenResponse($message, $data, $headers));
     }
 
-
     /**
      * @param string $message
      * @param array  $data
@@ -148,7 +137,6 @@ trait CreatesHttpResponses
     {
         return $this->errorResponse($message, $data, 404, $headers);
     }
-
 
     /**
      * @param string $message
@@ -162,7 +150,6 @@ trait CreatesHttpResponses
         throw new HttpResponseException($this->notFoundResponse($message, $data, $headers));
     }
 
-
     /**
      * @param string $message
      * @param array  $data
@@ -174,7 +161,6 @@ trait CreatesHttpResponses
     {
         return $this->errorResponse($message, $data, 422, $headers);
     }
-
 
     /**
      * @param string $message
@@ -188,7 +174,6 @@ trait CreatesHttpResponses
         throw new HttpResponseException($this->unprocessableEntityResponse($message, $data, $headers));
     }
 
-
     /**
      * @param string $message
      * @param array  $data
@@ -201,7 +186,6 @@ trait CreatesHttpResponses
         return $this->errorResponse($message, $data, 500, $headers);
     }
 
-
     /**
      * @param string $message
      * @param array  $data
@@ -213,7 +197,6 @@ trait CreatesHttpResponses
     {
         throw new HttpResponseException($this->fatalErrorResponse($message, $data, $headers));
     }
-
 
     /**
      * @param string $message
@@ -234,7 +217,6 @@ trait CreatesHttpResponses
         return $this->errorResponse($message, array_merge($data, ['errors' => $errors]), $status, $headers);
     }
 
-
     /**
      * @param string $message
      * @param array  $errors
@@ -250,7 +232,6 @@ trait CreatesHttpResponses
             $this->validationFailedResponse($message, $errors, $data, $status, $headers));
     }
 
-
     /**
      * @param array $data
      * @param array $metadata
@@ -263,7 +244,6 @@ trait CreatesHttpResponses
     {
         return new JsonResponse($data, $status, $headers);
     }
-
 
     /**
      * @param string $message
@@ -278,7 +258,6 @@ trait CreatesHttpResponses
         return new JsonResponse(array_merge(['message' => $message], $data), $status, $headers);
     }
 
-
     /**
      * @param Request $request
      * @param string  $key
@@ -289,7 +268,6 @@ trait CreatesHttpResponses
     {
         return $this->getRequestParam($request, $key) !== null;
     }
-
 
     /**
      * @param Request $request

@@ -6,12 +6,10 @@ use Nord\Lumen\Core\Domain\Status;
 
 trait HasStatus
 {
-
     /**
      * @var Status
      */
     private $status;
-
 
     /**
      * @return Status
@@ -21,7 +19,6 @@ trait HasStatus
         return $this->status;
     }
 
-
     /**
      * @return int
      */
@@ -29,7 +26,6 @@ trait HasStatus
     {
         return $this->status->getValue();
     }
-
 
     /**
      * @param Status $status

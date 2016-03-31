@@ -1,4 +1,6 @@
-<?php namespace Nord\Lumen\Core\Traits;
+<?php
+
+namespace Nord\Lumen\Core\Traits;
 
 use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;

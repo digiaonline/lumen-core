@@ -1,4 +1,6 @@
-<?php namespace Nord\Lumen\Core\Traits;
+<?php
+
+namespace Nord\Lumen\Core\Traits;
 
 use Closure;
 use Illuminate\Contracts\Validation\Factory;

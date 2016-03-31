@@ -1,4 +1,6 @@
-<?php namespace Nord\Lumen\Core\Domain;
+<?php
+
+namespace Nord\Lumen\Core\Domain;
 
 use Crisu83\ShortId\ShortId;
 use Nord\Lumen\Core\Contracts\ValueObject;

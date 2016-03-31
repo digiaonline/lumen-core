@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Access\Services;
+namespace Nord\Lumen\Core\Services;
 
 use Doctrine\ORM\QueryBuilder;
 use League\Fractal\Pagination\PagerfantaPaginatorAdapter;

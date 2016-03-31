@@ -1,8 +1,9 @@
-<?php namespace Nord\Lumen\Core\Infrastructure;
+<?php
+
+namespace Nord\Lumen\Core\Infrastructure;
 
 use Doctrine\ORM\EntityRepository as BaseRepository;
 use Nord\Lumen\Core\Contracts\Entity;
-use Nord\Lumen\Core\Domain\Model\Entity;
 
 class EntityRepository extends BaseRepository
 {

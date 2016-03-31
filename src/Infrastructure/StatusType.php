@@ -1,4 +1,6 @@
-<?php namespace Nord\Lumen\Core\Infrastructure;
+<?php
+
+namespace Nord\Lumen\Core\Infrastructure;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;

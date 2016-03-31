@@ -1,4 +1,6 @@
-<?php namespace Nord\Lumen\Core\Debug;
+<?php
+
+namespace Nord\Lumen\Core\Debug;
 
 use Illuminate\Http\Exception\HttpResponseException;
 use Illuminate\Http\JsonResponse;

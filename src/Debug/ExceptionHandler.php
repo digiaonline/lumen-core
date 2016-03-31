@@ -1,4 +1,6 @@
-<?php namespace Nord\Lumen\Core\Debug;
+<?php
+
+namespace Nord\Lumen\Core\Debug;
 
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;

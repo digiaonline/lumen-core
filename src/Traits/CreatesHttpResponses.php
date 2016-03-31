@@ -1,4 +1,6 @@
-<?php namespace Nord\Lumen\Core\Traits;
+<?php
+
+namespace Nord\Lumen\Core\Traits;
 
 use Illuminate\Http\Exception\HttpResponseException;
 use Illuminate\Http\JsonResponse;

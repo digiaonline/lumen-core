@@ -8,7 +8,6 @@ use Nord\Lumen\Fractal\Contracts\FractalService;
 
 trait SerializesData
 {
-
     /**
      * @param mixed                    $item
      * @param TransformerAbstract|null $transformer
@@ -22,7 +21,6 @@ trait SerializesData
             ->item($item, $transformer, $resourceKey);
     }
 
-
     /**
      * @param mixed                    $collection
      * @param TransformerAbstract|null $transformer
@@ -35,7 +33,6 @@ trait SerializesData
         return $this->getFractalService()
             ->collection($collection, $transformer, $resourceKey);
     }
-
 
     /**
      * @return FractalService

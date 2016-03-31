@@ -6,7 +6,6 @@ use Nord\Lumen\Core\Exceptions\FatalError;
 
 trait CreatesIdentities
 {
-
     /**
      * @param Closure $objectIdExists
      *

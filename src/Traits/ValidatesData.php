@@ -6,7 +6,6 @@ use Illuminate\Validation\Validator;
 
 trait ValidatesData
 {
-
     /**
      * @param array $data
      * @param array $rules
@@ -19,7 +18,6 @@ trait ValidatesData
     {
         return $this->getValidatorFactory()->make($data, $rules, $messages, $customAttributes);
     }
-
 
     /**
      * @param array   $data
@@ -43,7 +41,6 @@ trait ValidatesData
             call_user_func($validationFailed, $validator->errors()->getMessages());
         }
     }
-
 
     /**
      * @return Factory

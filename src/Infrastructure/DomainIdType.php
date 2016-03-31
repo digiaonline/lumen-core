@@ -6,7 +6,6 @@ use Nord\Lumen\Core\Domain\DomainId;
 
 final class DomainIdType extends Type
 {
-
     /**
      * @inheritdoc
      */
@@ -14,7 +13,6 @@ final class DomainIdType extends Type
     {
         return $value instanceof DomainId ? $value->getValue() : $value;
     }
-
 
     /**
      * @inheritdoc
@@ -24,7 +22,6 @@ final class DomainIdType extends Type
         return new DomainId($value);
     }
 
-
     /**
      * @inheritdoc
      */
@@ -32,7 +29,6 @@ final class DomainIdType extends Type
     {
         return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
     }
-
 
     /**
      * @inheritdoc

@@ -4,7 +4,6 @@ use Illuminate\Contracts\Events\Dispatcher;
 
 trait FiresEvents
 {
-
     /**
      * @param string|object $event
      * @param array         $payload
@@ -16,7 +15,6 @@ trait FiresEvents
     {
         return $this->getEventDispatcher()->fire($event, $payload, $halt);
     }
-
 
     /**
      * @return Dispatcher

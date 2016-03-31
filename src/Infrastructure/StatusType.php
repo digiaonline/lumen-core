@@ -6,7 +6,6 @@ use Nord\Lumen\Core\Domain\Status;
 
 final class StatusType extends Type
 {
-
     /**
      * @inheritdoc
      */
@@ -14,7 +13,6 @@ final class StatusType extends Type
     {
         return $value instanceof Status ? $value->getValue() : $value;
     }
-
 
     /**
      * @inheritdoc
@@ -24,7 +22,6 @@ final class StatusType extends Type
         return new Status((int) $value);
     }
 
-
     /**
      * @inheritdoc
      */
@@ -32,7 +29,6 @@ final class StatusType extends Type
     {
         return $platform->getIntegerTypeDeclarationSQL($fieldDeclaration);
     }
-
 
     /**
      * @inheritdoc

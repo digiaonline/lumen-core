@@ -5,7 +5,6 @@ use Nord\Lumen\Core\Contracts\ValueObject;
 
 class DomainId implements ValueObject
 {
-
     /**
      * @var string
      */
@@ -16,7 +15,6 @@ class DomainId implements ValueObject
      */
     private static $identityGenerator;
 
-
     /**
      * DomainId constructor.
      *
@@ -26,7 +24,6 @@ class DomainId implements ValueObject
     {
         $this->value = $value === null ? $this->nextIdentity() : $value;
     }
-
 
     /**
      * @return string
@@ -40,7 +37,6 @@ class DomainId implements ValueObject
         return self::$identityGenerator->generate();
     }
 
-
     /**
      * @return string
      */
@@ -48,7 +44,6 @@ class DomainId implements ValueObject
     {
         return $this->value;
     }
-
 
     /**
      * @return string

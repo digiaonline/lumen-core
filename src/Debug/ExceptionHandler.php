@@ -1,21 +1,25 @@
 <?php namespace Nord\Lumen\Core\Debug;
 
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Laravel\Lumen\Exceptions\Handler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class ExceptionHandler extends Handler
 {
-
     /**
      * A list of the exception types that should not be reported.
      *
      * @var array
      */
     protected $dontReport = [
+        AuthorizationException::class,
         HttpException::class,
+        ModelNotFoundException::class,
+        ValidationException::class,
     ];
-
 
     /**
      * Report or log an exception.
@@ -30,7 +34,6 @@ class ExceptionHandler extends Handler
     {
         parent::report($e);
     }
-
 
     /**
      * @inheritdoc

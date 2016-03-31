@@ -23,9 +23,11 @@
     "suggest": {
         "nordsoftware/lumen-cors": "For CORS support.",
         "nordsoftware/lumen-doctrine": "For Doctrine support.",
+        "nordsoftware/lumen-elasticsearch": "For Elasticsearch support.",
+        "nordsoftware/lumen-fractal": "For serialization support.",
         "nordsoftware/lumen-oauth2": "For OAuth2 support.",
         "nordsoftware/lumen-rbac": "For RBAC support.",
-        "nordsoftware/lumen-fractal": "For Serialization support."
+        "pagerfanta/pagerfanta": "For pagination support."
     },
     "autoload": {
         "psr-4": {

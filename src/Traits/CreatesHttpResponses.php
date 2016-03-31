@@ -9,30 +9,6 @@ use Illuminate\Http\Request;
 trait CreatesHttpResponses
 {
     /**
-     * @param mixed $resource
-     * @param array $data
-     * @param array $headers
-     *
-     * @return JsonResponse
-     */
-    private function resourceOkResponse($resource, array $data = [], array $headers = [])
-    {
-        return $this->okResponse(array_merge(['data' => $resource], $data), $headers);
-    }
-
-    /**
-     * @param mixed $resource
-     * @param array $data
-     * @param array $headers
-     *
-     * @return JsonResponse
-     */
-    private function resourceCreatedResponse($resource, array $data = [], array $headers = [])
-    {
-        return $this->createdResponse(array_merge(['data' => $resource], $data), $headers);
-    }
-
-    /**
      * @param mixed $data
      * @param array $metadata
      * @param array $headers

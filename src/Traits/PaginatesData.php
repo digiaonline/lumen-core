@@ -7,7 +7,6 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Selectable;
 use Doctrine\ORM\QueryBuilder;
 use League\Fractal\Pagination\PagerfantaPaginatorAdapter;
-use League\Fractal\Pagination\PaginatorInterface;
 use Pagerfanta\Adapter\AdapterInterface;
 use Pagerfanta\Adapter\ArrayAdapter;
 use Pagerfanta\Adapter\DoctrineCollectionAdapter;
@@ -36,7 +35,7 @@ trait PaginatesData
      * @param int          $page
      * @param int          $count
      *
-     * @return PaginatorInterface
+     * @return PagerfantaPaginatorAdapter
      */
     private function createQueryBuilderPaginator(QueryBuilder $queryBuilder, $page, $count)
     {
@@ -85,6 +84,8 @@ trait PaginatesData
             // Do nothing, because we don't care ...
         }
 
-        return new PagerfantaPaginatorAdapter($pager, null);
+        return new PagerfantaPaginatorAdapter($pager, function($page) {
+            return "page={$page}";
+        });
     }
 }

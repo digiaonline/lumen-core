@@ -1,6 +1,6 @@
 <?php
 
-namespace MarianHelmet\Traits;
+namespace Nord\Lumen\Core\Traits;
 
 use Nord\Lumen\Elasticsearch\Contracts\ElasticsearchService;
 

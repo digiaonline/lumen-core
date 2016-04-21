@@ -3,7 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/nordsoftware/lumen-core/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/lumen-core)
 [![Latest Stable Version](https://poser.pugx.org/nordsoftware/lumen-core/version)](https://packagist.org/packages/nordsoftware/lumen-core)
 [![Total Downloads](https://poser.pugx.org/nordsoftware/lumen-core/downloads)](https://packagist.org/packages/nordsoftware/lumen-core)
-[![License](https://poser.pugx.org/nordsoftware/lumen-core/license)](https://packagist.org/packages/nordsoftware/lumen-core)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Core module for the [Lumen PHP framework](http://lumen.laravel.com/).
 

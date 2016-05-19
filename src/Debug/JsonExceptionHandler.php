@@ -7,6 +7,7 @@ use Illuminate\Http\Exception\HttpResponseException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use League\OAuth2\Server\Exception\OAuthException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class JsonExceptionHandler
 {
@@ -64,6 +65,8 @@ class JsonExceptionHandler
     {
         if ($exception instanceof HttpResponseException) {
             return $exception->getCode();
+        } else if ($exception instanceof HttpException) {
+            return $exception->getStatusCode();
         } else if ($exception instanceof OAuthException) {
             return $exception->httpStatusCode;
         } else {

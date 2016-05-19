@@ -33,10 +33,22 @@ class JsonExceptionHandler
      */
     public function createResponse(Exception $exception)
     {
-        $data   = $this->debug ? $this->extractExceptionData($exception) : 'Something went wrong.';
+        $data   = $this->createResponseData($exception);
         $status = $this->resolveResponseStatusCode($exception);
 
         return new JsonResponse($data, $status, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
+    }
+
+    /**
+     * @param Exception $exception
+     *
+     * @return array
+     */
+    protected function createResponseData(Exception $exception)
+    {
+        return $this->debug
+            ? $this->extractExceptionData($exception)
+            : ['message' => 'Something went wrong.'];
     }
 
     /**

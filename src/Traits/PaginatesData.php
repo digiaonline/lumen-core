@@ -84,7 +84,7 @@ trait PaginatesData
             // Do nothing, because we don't care ...
         }
 
-        return new PagerfantaPaginatorAdapter($pager, function($page) {
+        return new PagerfantaPaginatorAdapter($pager, function ($page) {
             return "page={$page}";
         });
     }

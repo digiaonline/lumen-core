@@ -2,6 +2,7 @@
 
 [![Code Climate](https://codeclimate.com/github/nordsoftware/lumen-core/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/lumen-core)
 [![StyleCI](https://styleci.io/repos/37920879/shield?style=flat)](https://styleci.io/repos/37920879)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nordsoftware/lumen-core/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/nordsoftware/lumen-core/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/nordsoftware/lumen-core/version)](https://packagist.org/packages/nordsoftware/lumen-core)
 [![Total Downloads](https://poser.pugx.org/nordsoftware/lumen-core/downloads)](https://packagist.org/packages/nordsoftware/lumen-core)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)

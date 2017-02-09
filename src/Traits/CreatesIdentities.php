@@ -11,8 +11,9 @@ trait CreatesIdentities
     /**
      * @param Closure $objectIdExists
      *
-     * @return DomainId
      * @throws FatalError
+     *
+     * @return DomainId
      */
     private function createDomainId(Closure $objectIdExists)
     {

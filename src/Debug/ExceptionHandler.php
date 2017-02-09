@@ -4,8 +4,8 @@ namespace Nord\Lumen\Core\Debug;
 
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Validation\ValidationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Validation\ValidationException;
 use Laravel\Lumen\Exceptions\Handler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
@@ -28,7 +28,7 @@ class ExceptionHandler extends Handler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception $e
+     * @param \Exception $e
      *
      * @return void
      */
@@ -38,7 +38,7 @@ class ExceptionHandler extends Handler
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function render($request, Exception $e)
     {

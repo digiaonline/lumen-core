@@ -4,7 +4,7 @@ namespace Nord\Lumen\Core\Traits;
 
 use Closure;
 use Illuminate\Contracts\Validation\Factory;
-use Illuminate\Validation\Validator;
+use Illuminate\Contracts\Validation\Validator;
 
 trait ValidatesData
 {

@@ -3,7 +3,7 @@
 namespace Nord\Lumen\Core\Debug;
 
 use Exception;
-use Illuminate\Http\Exception\HttpResponseException;
+use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use League\OAuth2\Server\Exception\OAuthException;

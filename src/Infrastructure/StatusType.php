@@ -9,7 +9,7 @@ use Nord\Lumen\Core\Domain\Status;
 final class StatusType extends Type
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
@@ -17,7 +17,7 @@ final class StatusType extends Type
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
@@ -25,7 +25,7 @@ final class StatusType extends Type
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
@@ -33,7 +33,7 @@ final class StatusType extends Type
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getName()
     {

@@ -58,9 +58,6 @@ trait ManagesEntities
         $this->commitEntities();
     }
 
-    /**
-     *
-     */
     private function commitEntities()
     {
         $this->getEntityManager()->flush();

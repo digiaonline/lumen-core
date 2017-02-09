@@ -33,7 +33,7 @@ class JsonExceptionHandler
      */
     public function createResponse(Exception $exception)
     {
-        $data   = $this->createResponseData($exception);
+        $data = $this->createResponseData($exception);
         $status = $this->resolveResponseStatusCode($exception);
 
         return new JsonResponse($data, $status, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
@@ -64,7 +64,7 @@ class JsonExceptionHandler
             'code'      => $exception->getCode(),
             'file'      => $exception->getFile(),
             'line'      => $exception->getLine(),
-            'trace'     => []
+            'trace'     => [],
         ];
 
         foreach ($exception->getTrace() as $item) {
@@ -119,7 +119,7 @@ class JsonExceptionHandler
      */
     private function cleanTraceArgs(array $args, $level = 0, &$count = 0)
     {
-        $result = array();
+        $result = [];
 
         foreach ($args as $key => $value) {
             if (++$count > 1e4) {
@@ -145,7 +145,7 @@ class JsonExceptionHandler
                 $array = new \ArrayObject($value);
                 $result[$key] = $array['__PHP_Incomplete_Class_Name'];
             } else {
-                $result[$key] = (string)$value;
+                $result[$key] = (string) $value;
             }
         }
 

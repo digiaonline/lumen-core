@@ -10,9 +10,11 @@
 
 Core module for the [Lumen PHP framework](http://lumen.laravel.com/).
 
+**NOTE**: Branch 5.2 is now using Lumen framework 5.2. Only bug fixes for 1.4.X should be tagged here.
+
 ## Requirements
 
-- PHP 5.4 or newer
+- PHP 5.6 or newer
 - [Composer](http://getcomposer.org)
 
 ## Contributing
@@ -21,4 +23,4 @@ Please read the [guidelines](.github/CONTRIBUTING.md).
 
 ## License
 
-See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).

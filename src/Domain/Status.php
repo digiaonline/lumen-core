@@ -32,6 +32,8 @@ class Status implements ValueObject
 
     /**
      * @param int $value
+     *
+     * @throws InvalidArgument
      */
     private function setValue($value)
     {

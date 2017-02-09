@@ -32,6 +32,7 @@ trait RunsLumen
      * Creates the application.
      *
      * @return Application
+     * @throws FatalError
      */
     private function createApplication()
     {

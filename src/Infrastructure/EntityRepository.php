@@ -10,7 +10,7 @@ class EntityRepository extends BaseRepository
     /**
      * @param string $domainId
      *
-     * @return Entity|null
+     * @return Entity|null|object
      */
     public function findByDomainId($domainId)
     {

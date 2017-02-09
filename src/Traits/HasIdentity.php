@@ -50,6 +50,8 @@ trait HasIdentity
 
     /**
      * @param DomainId $domainId
+     *
+     * @throws ImmutableProperty
      */
     private function setDomainId(DomainId $domainId)
     {

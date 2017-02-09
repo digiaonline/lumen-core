@@ -29,7 +29,7 @@ class JsonExceptionHandler
     /**
      * @param Exception $exception
      *
-     * @return Response
+     * @return JsonResponse
      */
     public function createResponse(Exception $exception)
     {

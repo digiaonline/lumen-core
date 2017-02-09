@@ -10,7 +10,6 @@ trait CreatesHttpResponses
 {
     /**
      * @param mixed $data
-     * @param array $metadata
      * @param array $headers
      *
      * @return JsonResponse
@@ -22,7 +21,6 @@ trait CreatesHttpResponses
 
     /**
      * @param mixed $data
-     * @param array $metadata
      * @param array $headers
      *
      * @return JsonResponse
@@ -212,7 +210,6 @@ trait CreatesHttpResponses
 
     /**
      * @param array $data
-     * @param array $metadata
      * @param int   $status
      * @param array $headers
      *
